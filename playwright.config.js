@@ -3,7 +3,11 @@ const { defineConfig } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './tests',
   fullyParallel: true,
-  reporter: [['json', { outputFile: 'test-results/results.json' }], ['list']],
+  // The dashboard reporter streams live per-test results to the dashboard
+  // backend — without it, the dashboard only sees the overall process exit
+  // code, not individual test outcomes. Present at this path because
+  // admin-dashboard's provisioner copies dashboard/ into every client repo.
+  reporter: [['json', { outputFile: 'test-results/results.json' }], ['list'], ['./dashboard/reporter/dashboard-reporter.js']],
   // Explicit, named project with a real testMatch list — an unnamed default
   // project (what Playwright falls back to without this) reports its
   // testMatch as the raw catch-all glob string, which the dashboard passes
