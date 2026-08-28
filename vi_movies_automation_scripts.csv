@@ -1,0 +1,48 @@
+Test Case ID,Scenario Description,Gherkin Feature / Automation Script Blueprint,Automation Target Elements
+VI-AUTO-001,Successful Login via Vi Mobile Number (OTP),"Feature: Vi Movies Login
+  Scenario: Successful login with valid mobile number and OTP
+    Given the user opens the Vi Movies app or website
+    When the user enters a valid 10-digit Vi mobile number ""9876543210""
+    And clicks on the ""Generate OTP"" button
+    And enters the received 4-digit or 6-digit valid OTP
+    And clicks on ""Verify & Login""
+    Then the user should be successfully redirected to the Home Screen
+    And the user profile icon should be visible.","Input Field: `input[type=""tel""]` or `id=""mobileNumber""`
+Button: `id=""sendOtp""` or `text=""Generate OTP""`
+OTP Field: `id=""otpInput""`
+Submit: `id=""verifyOtp""`"
+VI-AUTO-002,Browse and Validate Live TV Channel Playback,"Feature: Live TV Streaming
+  Scenario: Stream a live TV channel
+    Given the user is logged into the Vi Movies platform
+    When the user navigates to the ""Live TV"" tab
+    And clicks on the first active channel banner (e.g., ""Aaj Tak"")
+    Then the video player element should be initialized
+    And the player state should change to ""playing""
+    And the video streaming should not throw any 404 or network errors.","Live TV Tab: `a[href=""/live-tv""]` or `id=""liveTvTab""`
+Channel Card: `xpath=//div[@class=""channel-card""][1]`
+Video Player: `video` tag or `id=""viPlayer""`"
+VI-AUTO-003,Search Content with Voice or Text and Validate Results,"Feature: Content Search
+  Scenario: Search for a premium movie
+    Given the user is on the Vi Movies home page
+    When the user types ""Mirzapur"" into the search bar
+    And presses Enter or clicks the search icon
+    Then the search results grid should display at least one item
+    And the title text of the first result should contain ""Mirzapur"".","Search Bar: `input[placeholder*=""Search""]` or `id=""searchBar""`
+Search Results: `div.search-result-item` or `xpath=//h3[contains(text(),""Mirzapur"")]`"
+VI-AUTO-004,Premium Content Paywall Redirection Check,"Feature: Paywall Enforcement
+  Scenario: Non-VIP user attempts to stream VIP content
+    Given the user is logged in with a basic/non-active plan account
+    When the user navigates to a premium movie details page
+    And clicks on the ""Watch Now"" button
+    Then the video player should not start playing
+    And a subscription pop-up or plan selection page should be displayed.","Watch Button: `button.watch-now`
+Subscription Modal: `div.subscription-modal` or `id=""paywallPopup""`"
+VI-AUTO-005,Validate Language/Genre Filter Functionality,"Feature: Content Filtering
+  Scenario: Filter movies by Hindi language
+    Given the user is in the ""Movies"" section
+    When the user opens the ""Language"" filter dropdown
+    And selects ""Hindi""
+    Then all displayed movie cards should match the Hindi language attribute.","Movies Section: `id=""moviesTab""`
+Filter Dropdown: `id=""langFilter""`
+Checkbox/Item: `input[value=""Hindi""]`
+Movie Grid: `.movie-card[data-lang=""Hindi""]`"
