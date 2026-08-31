@@ -1,0 +1,18 @@
+Test Suite,Test Case ID,Description,Pre-conditions,Steps,Expected Result
+User Authentication,TC-001,Verify successful user login,User has a valid registered account.,"1. Navigate to Netflix homepage.
+2. Click 'Sign In'.
+3. Enter valid email.
+4. Enter valid password.
+5. Click 'Sign In' submit.",User redirected to 'Who's Watching?' screen.
+User Authentication,TC-002,Verify login failure with invalid password,User has a valid registered email.,"1. Navigate to Netflix login page.
+2. Enter valid email.
+3. Enter invalid password.
+4. Click 'Sign In'.",Error message: 'Incorrect password. Please try again.'
+Profile Management,TC-003,Verify creating a new user profile,User is logged in and on the profile selection screen.,"1. Click 'Add Profile' (+ icon).
+2. Enter profile name (e.g., 'Guest').
+3. Click 'Continue'.",New profile 'Guest' is visible on profile screen.
+Content Search & Playback,TC-004,Verify searching for specific content,User is logged in and a profile is selected.,"1. Click Search bar.
+2. Type specific title (e.g., 'Stranger Things').",Search results display the requested title card.
+Content Search & Playback,TC-005,Verify video playback launch,User is on the details page of a movie or TV show.,1. Click 'Play' button.,Video player opens and stream begins playing with audio.
+My List Management,TC-006,Verify adding content to My List,User is on a specific title's detail page.,"1. Click 'My List' (+ icon).
+2. Navigate to 'My List' from top nav bar.",The chosen title appears inside the 'My List' row.
