@@ -18,5 +18,9 @@ module.exports = defineConfig({
       name: 'vi-movies-scenarios',
       testMatch: ['**/vi-movies-scenarios.spec.js'],
     },
+    {
+      name: 'zee5-dummy-scenarios',
+      testMatch: ['**/zee5-dummy-scenarios.spec.js'],
+    },
   ],
 });
