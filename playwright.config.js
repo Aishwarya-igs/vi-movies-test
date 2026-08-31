@@ -18,5 +18,9 @@ module.exports = defineConfig({
       name: 'vi-movies-scenarios',
       testMatch: ['**/vi-movies-scenarios.spec.js'],
     },
+    {
+      name: 'netflix-dummy-scenarios',
+      testMatch: ['**/netflix-dummy-scenarios.spec.js'],
+    },
   ],
 });
